@@ -6,6 +6,7 @@ import io.dropwizard.setup.Bootstrap;
 import io.dropwizard.setup.Environment;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import com.dwbook.phonebook.resources.ContactResource;
 
 public class App extends Application<Configuration> {
 
@@ -23,5 +24,7 @@ public class App extends Application<Configuration> {
     public void run(Configuration configuration, Environment environment) throws Exception {
         LOGGER.info("Mathod App#run() called");
         System.out.println("Hello world, by Dropwizard");
+
+        environment.jersey().register(new ContactResource());
     }
 }
